@@ -1,0 +1,204 @@
+/* Global styles */
+body {
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+/* Container styles */
+.sp-service-providers-container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.sp-service-providers-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Title styles */
+.sp-service-providers-container h2 {
+  text-align: center;
+  color: #333;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.sp-service-providers-container h2::after {
+  content: '';
+  display: block;
+  width: 50px;
+  height: 3px;
+  background-color: #3498db;
+  margin: 10px auto 0;
+  transition: width 0.3s ease;
+}
+
+.sp-service-providers-container:hover h2::after {
+  width: 100px;
+}
+
+/* Provider list styles */
+.sp-providers-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+/* Provider card styles */
+.sp-provider-card {
+  background-color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  animation: fadeIn 0.5s ease-out forwards;
+  opacity: 0;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.sp-provider-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.sp-provider-card.selected {
+  border: 3px solid #3498db;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(52, 152, 219, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(52, 152, 219, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(52, 152, 219, 0);
+  }
+}
+
+/* Provider image styles */
+.sp-provider-image {
+  height: 200px;
+  overflow: hidden;
+}
+
+.sp-provider-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.sp-provider-card:hover .sp-provider-image img {
+  transform: scale(1.1);
+}
+
+/* Provider name styles */
+.sp-provider-name {
+  padding: 1rem;
+  background-color: #3498db;
+}
+
+.sp-provider-name h3 {
+  color: #fff;
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+/* Provider details styles */
+.sp-provider-card p {
+  padding: 0.5rem 1rem;
+  margin: 0;
+  color: #555;
+}
+
+/* Button styles */
+.btn {
+  display: block;
+  width: calc(100% - 2rem);
+  margin: 1rem;
+  padding: 0.75rem;
+  background-color: #3498db;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #2980b9;
+  transform: translateY(-2px);
+}
+
+/* No providers message styles */
+.sp-providers-list > p {
+  grid-column: 1 / -1;
+  text-align: center;
+  font-size: 1.2rem;
+  color: #777;
+  padding: 2rem;
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .sp-providers-list {
+    grid-template-columns: 1fr;
+  }
+
+  .sp-service-providers-container h2 {
+    font-size: 2rem;
+  }
+}
+
+/* Animation delay for card entrance */
+.sp-provider-card:nth-child(1) { animation-delay: 0.1s; }
+.sp-provider-card:nth-child(2) { animation-delay: 0.2s; }
+.sp-provider-card:nth-child(3) { animation-delay: 0.3s; }
+.sp-provider-card:nth-child(4) { animation-delay: 0.4s; }
+/* Add more if needed */
+
+/* Accessibility improvements */
+.sp-provider-card:focus,
+.btn:focus {
+  outline: 3px solid #3498db;
+  outline-offset: 2px;
+}
+
+/* Print styles */
+@media print {
+  .sp-provider-card {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .btn {
+    display: none;
+  }
+}

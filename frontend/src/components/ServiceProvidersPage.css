@@ -1,0 +1,209 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.sp-service-providers-container {
+  padding: 20px;
+  max-width: 1350px;
+  text-align: center;
+}
+
+h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.sp-providers-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.sp-provider-card {
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  width: calc(25% - 20px);
+  box-sizing: border-box;
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+  margin-bottom: 20px; /* Reduce the overall height by reducing bottom margin */
+}
+
+.sp-provider-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.sp-provider-image {
+  width: 70%;
+  /* Reduce the aspect ratio height to make the card shorter */
+  position: relative;
+  padding-top:80%;
+  overflow: hidden;
+}
+
+.sp-provider-image img {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  bottom: 30%;
+  object-fit: cover;
+  transform: translate(-50%, -50%);
+  
+}
+
+.sp-provider-name {
+  margin: 10px 0; /* Reduce top and bottom margins */
+  font-size: 20px;
+  color: #00796b;
+}
+
+p {
+  margin: 0 15px 10px; /* Reduce bottom margin */
+  color: #555;
+}
+
+.btn {
+  display: inline-block;
+  margin: 10px 0;
+  padding: 8px 16px; /* Slightly reduce padding */
+  font-size: 16px;
+  background-color: #00796b;
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.btn:hover {
+  background-color: #004d40;
+}
+
+
+/* Global Styles */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: white;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+/* Header Styles */
+header {
+  background-color: #007BFF;
+  color: white;
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* Service Providers Container */
+.sp-service-providers-container {
+  padding: 40px;
+  max-width: 1280px;
+  margin: 0 auto;
+  text-align: center;
+  background-color: white;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.sp-service-providers-container h2 {
+  margin-bottom: 40px;
+  font-size: 32px;
+  color: #007BFF;
+}
+
+/* Providers List */
+.sp-providers-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* Provider Card */
+.sp-provider-card {
+  background-color: white;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 280px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  
+}
+
+.sp-provider-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.15);
+}
+
+.sp-provider-card.selected {
+  border: 2px solid #007BFF;
+}
+
+/* Provider Image */
+.sp-provider-image {
+  width: 70%;
+  height: 50px;
+  overflow: hidden;
+  background-color: rgb(255, 255, 255);
+  margin: 20px auto;
+}
+
+.sp-provider-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+} 
+
+/* Provider Name */
+.sp-provider-name {
+  font-size: 22px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.sp-provider-name h3 {
+  margin: 0;
+  font-weight: 600;
+}
+
+/* Provider Details */
+.sp-provider-card p {
+  margin: 10px 0;
+  font-size: 16px;
+  color: #666;
+}
+
+/* View Details Button */
+.sp-provider-card .btn {
+  display: inline-block;
+  /* margin-top: 15px; */
+  padding: 10px 20px;
+  background-color: #007BFF;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.sp-provider-card .btn:hover {
+  background-color: #0056b3;
+}
+
+/* Footer Styles */
+footer {
+  background-color: #333;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  font-size: 16px;
+}

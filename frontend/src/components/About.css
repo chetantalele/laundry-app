@@ -1,0 +1,216 @@
+.about-container {
+    max-width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .about-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 30px;
+  }
+  
+  .about-img-container {
+    flex: 1;
+    padding: 15px;
+  }
+  
+  .about-img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .about-text-container {
+    flex: 1;
+    padding: 15px;
+  }
+  
+  .about-title {
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 1.8rem;
+  }
+  
+  .about-paragraph {
+    margin-bottom: 15px;
+    line-height: 1.6;
+    color: #555;
+    font-size: 1rem;
+  }
+  
+  .about-history-section {
+    margin-top: 40px;
+  }
+  
+  .about-history-title {
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #333;
+    font-size: 1.5rem;
+  }
+  
+  .about-history-paragraph {
+    margin-bottom: 15px;
+    line-height: 1.6;
+    color: #555;
+    font-size: 1rem;
+  }
+  
+  .about-team-section {
+    margin-top: 40px;
+  }
+  
+  .about-team-title {
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #333;
+    font-size: 1.5rem;
+  }
+  
+  .about-team-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-around;
+  }
+  
+  .about-team-member {
+    text-align: center;
+  }
+  
+  .about-team-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+  }
+  
+  .about-team-name {
+    font-weight: bold;
+    color: #333;
+    font-size: 1.1rem;
+  }
+  
+  .about-team-role {
+    color: #777;
+    font-size: 0.9rem;
+  }
+  
+  .about-features-row {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 40px;
+    gap: 20px;
+  }
+  
+  .about-feature {
+    flex: 1 1 30%;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+  }
+  
+  .about-feature:hover {
+    transform: translateY(-5px);
+  }
+  
+  .about-feature-title {
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #46C6CE;
+    font-size: 1.2rem;
+  }
+  
+  .about-feature-text {
+    margin-bottom: 0;
+    color: #666;
+    font-size: 0.9rem;
+  }
+  
+  .about-testimonials-section {
+    margin-top: 40px;
+  }
+  
+  .about-testimonials-title {
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #333;
+    font-size: 1.5rem;
+  }
+  
+  .about-testimonial {
+    margin-bottom: 20px;
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .about-testimonial-text {
+    font-style: italic;
+    color: #555;
+    line-height: 1.5;
+  }
+  
+  .about-testimonial-author {
+    text-align: right;
+    font-weight: bold;
+    color: #333;
+    margin-top: 10px;
+  }
+  
+  .about-cta-section {
+    text-align: center;
+    margin-top: 40px;
+  }
+  
+  .about-cta-title {
+    font-weight: bold;
+    color: #333;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+  }
+  
+  .about-cta-button {
+    padding: 10px 20px;
+    background-color: #46C6CE;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .about-cta-button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .about-row,
+    .about-features-row {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .about-feature {
+      flex: 1 1 100%;
+    }
+  
+    .about-team-row {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  

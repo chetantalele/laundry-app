@@ -1,0 +1,143 @@
+.login-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #e0f7fa;
+}
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 20px; /* Add some padding to ensure space on smaller screens */
+  box-sizing: border-box;
+}
+
+.login-card {
+  display: flex;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  max-width: 1100px;
+  width: 100%;
+  flex-direction: column; /* Change to column by default */
+}
+
+.login-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #b2ebf2;
+  padding: 20px; /* Add padding to image section */
+}
+
+.login-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px; /* Slightly round image corners */
+}
+
+.login-form-container {
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+}
+
+h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #333;
+  text-align: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 400px; /* Restrict form width for better readability */
+}
+
+input {
+  margin-bottom: 15px;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button {
+  padding: 10px;
+  font-size: 16px;
+  background-color: #00796b;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #004d40;
+}
+
+.login-signup-prompt {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.login-signup-prompt p {
+  font-size: 16px;
+  color: #555;
+}
+
+.login-signup-button {
+  padding: 10px;
+  font-size: 16px;
+  background-color: #004d40;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.login-signup-button:hover {
+  background-color: #00332e;
+}
+
+.login-forgot-password {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+.login-forgot-password a {
+  font-size: 14px;
+  color: #00796b;
+  text-decoration: none;
+}
+
+.login-forgot-password a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Styles */
+@media (min-width: 768px) {
+  .login-card {
+    flex-direction: row; /* Change to row for larger screens */
+  }
+
+  .login-image {
+    flex: 1; /* Allow image section to take up more space */
+  }
+
+  .login-form-container {
+    flex: 1; /* Allow form section to take up more space */
+  }
+}
