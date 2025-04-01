@@ -19,7 +19,11 @@ dotenv.config();
 // Middleware setup
 serviceProviderApp.use(
   cors({
-    origin: "http://localhost:5173",
+     origin: [
+      "http://localhost:5173", // Local development frontend
+      "http://yourfrontenddomain.com", // If your frontend is deployed on a domain
+      "http://13.232.118.100",  // Your public IP, if you are testing or accessing directly
+    ],
     credentials: true,
   })
 );

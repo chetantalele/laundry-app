@@ -22,7 +22,11 @@ const saltRounds = 10;
 dotenv.config();
 
 app.use(cors({
-  origin: "http://localhost:5173", 
+  origin: [
+    "http://localhost:5173", // Local development frontend
+    "http://yourfrontenddomain.com", // If your frontend is deployed on a domain
+    "http://13.232.118.100",  // Your public IP, if you are testing or accessing directly
+  ], 
   credentials: true
 }));
 
@@ -1083,7 +1087,8 @@ app.post('/userlogout', (req, res) => {
 
 app.use("/service-provider", serviceProviderApp);
 
-app.listen(port, () => {
+app.listen(port, '0.0.0.0', () => {
   console.log(`Server running on port ${port}`);
 });
+
 
