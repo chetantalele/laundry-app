@@ -30,13 +30,11 @@ app.use(cors({
   credentials: true
 }));
 
-const session = require('express-session');
-// Consider adding a persistent store for production:
-// const MongoStore = require('connect-mongo'); // Example for MongoDB
 
-serviceProviderApp.use(
+
+app.use(
   session({
-    secret: process.env.SESSION_SECRET_LSP, // Keep using environment variable - ensure it's strong!
+    secret: process.env.SESSION_SECRET, // Keep using environment variable - ensure it's strong!
     resave: false,                           // Good setting, prevents saving unchanged sessions.
     saveUninitialized: false,                // Recommended: Set to false. Only creates a session cookie when you actually modify the session (e.g., user logs in). Set to true ONLY if you specifically need every visitor to get a session cookie immediately.
     // store: MongoStore.create({ mongoUrl: process.env.MONGO_URI }), // IMPORTANT: Add a persistent store (like Mongo, Redis, etc.) for production. MemoryStore (default) leaks memory and doesn't survive restarts.

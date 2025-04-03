@@ -28,7 +28,7 @@ serviceProviderApp.use(
   })
 );
 
-const session = require('express-session');
+
 // Consider adding a persistent store for production:
 // const MongoStore = require('connect-mongo'); // Example for MongoDB
 
