@@ -14,7 +14,7 @@ function OrderConfirmationPage() {
   useEffect(() => {
     const fetchOrderDetails = async () => {
       try {
-        const response = await axios.get(`http://localhost:3000/api/order/${orderId}`);
+        const response = await axios.get(`http://43.204.96.204:3000/api/order/${orderId}`);
         setOrderDetails(response.data);
       } catch (error) {
         console.error('Failed to fetch order details:', error);

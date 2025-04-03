@@ -31,7 +31,7 @@ const ServiceProvidersPage = () => {
   useEffect(() => {
     const fetchProviders = async () => {
       try {
-        const response = await fetch('http://localhost:3000/user/providers', {
+        const response = await fetch('http://43.204.96.204:3000/user/providers', {
           credentials: 'include'
         });
         const fetchedProviders = await response.json();

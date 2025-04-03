@@ -16,7 +16,7 @@ function ProviderServicesPage() {
     const fetchServices = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:3000/user/providers/${providerId}/services`,
+          `http://43.204.96.204:3000/user/providers/${providerId}/services`,
           { withCredentials: true }
         );
         setServices(response.data);

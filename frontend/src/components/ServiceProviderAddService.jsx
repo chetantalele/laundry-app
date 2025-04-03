@@ -15,7 +15,7 @@ function ServiceProviderAddService() {
   useEffect(() => {
     const fetchServices = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/service-provider/services", { withCredentials: true });
+        const response = await axios.get("http://43.204.96.204:3000/service-provider/services", { withCredentials: true });
         setServices(response.data);
       } catch (error) {
         console.error("Error fetching services:", error);
@@ -40,14 +40,14 @@ function ServiceProviderAddService() {
       let serviceId = selectedService;
 
       if (!serviceId) {
-        const response = await axios.post("http://localhost:3000/service-provider/services", {
+        const response = await axios.post("http://43.204.96.204:3000/service-provider/services", {
           name: newServiceName,
           description: newServiceDescription,
         }, { withCredentials: true });
         serviceId = response.data.serviceId;
       }
 
-      const response = await axios.post("http://localhost:3000/service-provider/add-service", {
+      const response = await axios.post("http://43.204.96.204:3000/service-provider/add-service", {
         serviceId,
         price: servicePrice,
       }, { withCredentials: true });

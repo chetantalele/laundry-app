@@ -14,7 +14,7 @@ function Register() {
   const sendOtp = () => {
     axios
       .post(
-        "http://localhost:3000/send-otp",
+        "http://43.204.96.204:3000/send-otp",
         { email },
         { withCredentials: true }
       )
@@ -32,7 +32,7 @@ function Register() {
     e.preventDefault();
     axios
       .post(
-        "http://localhost:3000/verify-otp",
+        "http://43.204.96.204:3000/verify-otp",
         { email, otp },
         { withCredentials: true }
       )
@@ -54,7 +54,7 @@ function Register() {
     }
     axios
       .post(
-        "http://localhost:3000/register",
+        "http://43.204.96.204:3000/register",
         { username: email, password },
         { withCredentials: true }
       )

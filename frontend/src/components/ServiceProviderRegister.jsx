@@ -18,7 +18,7 @@ function RegisterServiceProvider() {
   const sendOtp = () => {
     axios
       .post(
-        "http://localhost:3000/service-provider/send-otp",
+        "http://43.204.96.204:3000/service-provider/send-otp",
         { email },
         { withCredentials: true }
       )
@@ -35,7 +35,7 @@ function RegisterServiceProvider() {
   const verifyOtp = () => {
     axios
       .post(
-        "http://localhost:3000/service-provider/verify-otp",
+        "http://43.204.96.204:3000/service-provider/verify-otp",
         { email, otp },
         { withCredentials: true }
       )
@@ -76,7 +76,7 @@ function RegisterServiceProvider() {
     }
     axios
       .post(
-        "http://localhost:3000/service-provider/register",
+        "http://43.204.96.204:3000/service-provider/register",
         { username: email, password, name, address, latitude, longitude },
         { withCredentials: true }
       )

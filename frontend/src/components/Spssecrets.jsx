@@ -8,7 +8,7 @@ function Spssecrets() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/service-provider/secrets", { withCredentials: true })
+      .get("http://43.204.96.204:3000/service-provider/secrets", { withCredentials: true })
       .then((response) => {
         setMessage(response.data.message);
 

@@ -15,7 +15,7 @@ function ProviderForgotpass() {
   const sendOtp = () => {
     axios
       .post(
-        "http://localhost:3000/service-provider/forgsend-otp",
+        "http://43.204.96.204:3000/service-provider/forgsend-otp",
         { email },
         { withCredentials: true }
       )
@@ -32,7 +32,7 @@ function ProviderForgotpass() {
   const verifyOtp = () => {
     axios
       .post(
-        "http://localhost:3000/service-provider/forgverify-otp",
+        "http://43.204.96.204:3000/service-provider/forgverify-otp",
         { email, otp },
         { withCredentials: true }
       )
@@ -54,7 +54,7 @@ function ProviderForgotpass() {
     }
     axios
       .post(
-        "http://localhost:3000/service-provider/forgpass",
+        "http://43.204.96.204:3000/service-provider/forgpass",
         { username: email, password },
         { withCredentials: true }
       )

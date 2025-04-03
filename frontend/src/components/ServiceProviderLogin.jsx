@@ -15,7 +15,7 @@ function ServiceProviderLogin() {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:3000/service-provider/login",
+        "http://43.204.96.204:3000/service-provider/login",
         { username, password },
         { withCredentials: true }
       );
@@ -47,7 +47,7 @@ function ServiceProviderLogin() {
           <GoogleButton
             type="light"
             label="Continue with Google"
-            onClick={() => window.location.href = "http://localhost:3000/service-provider/auth/google"}
+            onClick={() => window.location.href = "http://43.204.96.204:3000/service-provider/auth/google"}
           />
 
           <form onSubmit={handleLogin} className="space-y-4">

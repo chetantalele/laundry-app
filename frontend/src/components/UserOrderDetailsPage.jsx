@@ -20,7 +20,7 @@ function UserOrderDetailsPage() {
   useEffect(() => {
     const fetchOrder = async () => {
       try {
-        const response = await axios.get(`http://localhost:3000/user/orders/${orderId}`, { withCredentials: true });
+        const response = await axios.get(`http://43.204.96.204:3000/user/orders/${orderId}`, { withCredentials: true });
         setOrder(response.data);
         setPickupTime(response.data.PickupTime || '');
         setDropoffTime(response.data.DropoffTime || '');
@@ -37,7 +37,7 @@ function UserOrderDetailsPage() {
 
   const handleUpdate = async () => {
     try {
-      const response = await axios.post('http://localhost:3000/user/update-order', {
+      const response = await axios.post('http://43.204.96.204:3000/user/update-order', {
         OrderID: order.OrderID,
         PickupTime: pickupTime || null,
         DropoffTime: dropoffTime || null,
@@ -59,7 +59,7 @@ function UserOrderDetailsPage() {
 
   const handleRequestOtp = async () => {
     try {
-      const response = await axios.post('http://localhost:3000/user/send-otp', {
+      const response = await axios.post('http://43.204.96.204:3000/user/send-otp', {
         orderId: order.OrderID
       }, { withCredentials: true });
       setOtpMessage(response.data.message);
@@ -72,7 +72,7 @@ function UserOrderDetailsPage() {
 
   const handleCancelOrder = async () => {
     try {
-      const response = await axios.post(`http://localhost:3000/user/cancel-order`, {
+      const response = await axios.post(`http://43.204.96.204:3000/user/cancel-order`, {
         orderId: order.OrderID,
       }, { withCredentials: true });
 
@@ -82,11 +82,11 @@ function UserOrderDetailsPage() {
       }));
       setError(null);
 
-      await axios.post('http://localhost:3000/user/cancel-orderconfirmation',{
+      await axios.post('http://43.204.96.204:3000/user/cancel-orderconfirmation',{
         orderId: order.OrderID
       });
 
-      await axios.post('http://localhost:3000/provider/cancel-orderconfirmation',{
+      await axios.post('http://43.204.96.204:3000/provider/cancel-orderconfirmation',{
         orderId: order.OrderID
       });
 

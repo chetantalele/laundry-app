@@ -14,7 +14,7 @@ function UserForgotpass() {
   const sendOtp = () => {
     axios
       .post(
-        "http://localhost:3000/forgsend-otp",
+        "http://43.204.96.204:3000/forgsend-otp",
         { email },
         { withCredentials: true }
       )

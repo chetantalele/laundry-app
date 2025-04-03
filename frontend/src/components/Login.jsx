@@ -1,30 +1,41 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from 'react-router-dom';
 import img from './images/file.png'
+
+// Set axios defaults globally
+axios.defaults.withCredentials = true;
 
 function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
+  // Call checkSession when component mounts
+  useEffect(() => {
+    checkSession();
+  }, []);
+
   const handleLogin = async (e) => {
     e.preventDefault();
   
     try {
       const response = await axios.post(
-        "http://localhost:3000/login", 
-        { username, password },
-        { withCredentials: true }
+        "http://43.204.96.204:3000/login", 
+        { username, password }
+        // No need to specify withCredentials here as it's set globally
       );
   
       if (response.status === 200) {
         const email = response.data.email;
+        
+        // Log successful login
+        console.log("Login successful:", response.data);
   
         // Store the email in sessionStorage instead of localStorage
         sessionStorage.setItem("email", email);
   
-        window.location.href = "/secrets"; 
+       window.location.href = "/secrets"; 
       } else {
         alert("Login Failed! Please check your username or password.");
       }
@@ -35,7 +46,25 @@ function Login() {
   };
   
   const handleGoogleLogin = () => {
-    window.location.href = "http://localhost:3000/auth/google";
+    window.location.href = "http://43.204.96.204:3000/auth/google";
+  };
+
+  const checkSession = async () => {
+    try {
+      const response = await axios.get('http://43.204.96.204:3000/check-session', {
+        withCredentials: true
+      });
+      console.log("Session status:", response.data);
+      
+      // If authenticated, you can redirect or update state
+      if (response.data.authenticated) {
+        console.log("User is authenticated:", response.data.user);
+        // Redirect user to secrets page if already authenticated
+        window.location.href = "/secrets";
+      }
+    } catch (error) {
+      console.error("Error checking session:", error);
+    }
   };
 
   return (

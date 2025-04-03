@@ -30,7 +30,7 @@ function CheckoutPage() {
     // Fetch user ID from backend when component mounts
     const fetchUserId = async () => {
       try {
-        const response = await axios.get('http://localhost:3000/api/user/me', { withCredentials: true });
+        const response = await axios.get('http://43.204.96.204:3000/api/user/me', { withCredentials: true });
         setUserId(response.data.id);
       } catch (error) {
         console.error('Failed to fetch user ID:', error);
@@ -69,7 +69,7 @@ function CheckoutPage() {
       const { name, email, phone, address } = customerDetails;
 
       // Create order
-      const orderResponse = await axios.post('http://localhost:3000/api/order', {
+      const orderResponse = await axios.post('http://43.204.96.204:3000/api/order', {
         customerID: userId, // Use the fetched user ID
         name,
         email,
@@ -85,7 +85,7 @@ function CheckoutPage() {
 
       // Create order items
       await Promise.all(selectedServices.map(service =>
-        axios.post('http://localhost:3000/api/orderitem', {
+        axios.post('http://43.204.96.204:3000/api/orderitem', {
           orderID: orderId,
           serviceID: service.serviceId,
           quantity: service.quantity,
@@ -94,7 +94,7 @@ function CheckoutPage() {
       ));
 
 
-      await axios.post('http://localhost:3000/user/send-orderconfirmation',{
+      await axios.post('http://43.204.96.204:3000/user/send-orderconfirmation',{
         userem:email,
         orderId:orderId,
         details:selectedServices,
@@ -106,7 +106,7 @@ function CheckoutPage() {
 
 
       // Send email to the provider
-      await axios.post('http://localhost:3000/provider/send-orderconfirmation', {
+      await axios.post('http://43.204.96.204:3000/provider/send-orderconfirmation', {
         orderId: orderId,
         details: selectedServices,
         total: totalAmount

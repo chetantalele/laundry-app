@@ -7,7 +7,7 @@ const Header = (props) => {
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    axios.post('http://localhost:3000/userlogout', {}, { withCredentials: true })
+    axios.post('http://43.204.96.204:3000/userlogout', {}, { withCredentials: true })
       .then((response) => {
         console.log(response.data.message);
         alert("Logout Successful!");

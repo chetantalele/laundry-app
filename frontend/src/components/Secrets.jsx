@@ -8,7 +8,7 @@ function Secrets() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/secrets", { withCredentials: true })
+      .get("http://43.204.96.204:3000/secrets", { withCredentials: true })
       .then((response) => {
         setMessage(response.data.message);
 

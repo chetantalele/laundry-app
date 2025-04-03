@@ -32,7 +32,7 @@ const UserUpdate = () => {
   
     try {
       const response = await axios.post(
-        "http://localhost:3000/update-user",
+        "http://43.204.96.204:3000/update-user",
         { email, phone, address },
         { withCredentials: true } // Important for session handling
       );

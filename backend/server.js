@@ -23,20 +23,38 @@ dotenv.config();
 
 app.use(cors({
   origin: [
-    "http://localhost:5173", // Local development frontend
+    "http://43.204.96.204:5173", // Local development frontend
     "http://yourfrontenddomain.com", // If your frontend is deployed on a domain
-    "http://13.232.118.100",  // Your public IP, if you are testing or accessing directly
+    "http://43.204.96.204",  // Your public IP, if you are testing or accessing directly
   ], 
   credentials: true
 }));
 
-app.use(
+const session = require('express-session');
+// Consider adding a persistent store for production:
+// const MongoStore = require('connect-mongo'); // Example for MongoDB
+
+serviceProviderApp.use(
   session({
-    secret: process.env.SESSION_SECRET,
-    resave: false,
-    saveUninitialized: true,
+    secret: process.env.SESSION_SECRET_LSP, // Keep using environment variable - ensure it's strong!
+    resave: false,                           // Good setting, prevents saving unchanged sessions.
+    saveUninitialized: false,                // Recommended: Set to false. Only creates a session cookie when you actually modify the session (e.g., user logs in). Set to true ONLY if you specifically need every visitor to get a session cookie immediately.
+    // store: MongoStore.create({ mongoUrl: process.env.MONGO_URI }), // IMPORTANT: Add a persistent store (like Mongo, Redis, etc.) for production. MemoryStore (default) leaks memory and doesn't survive restarts.
+
+    cookie: {
+      secure: false,         // CORRECT for HTTP. **MUST change to 'true' if you enable HTTPS later.**
+      httpOnly: true,        // IMPORTANT Security Measure: Prevents client-side JavaScript from accessing the cookie via `document.cookie`. Helps mitigate XSS attacks stealing the session ID.
+      sameSite: 'Lax',       // BEST Practice for Same-Origin:
+                             // - 'Lax' allows the cookie to be sent on same-site requests and top-level navigations (like clicking a link), but prevents it from being sent on cross-site subrequests (like those initiated by third-party sites). This is the generally recommended default and provides CSRF protection.
+                             // - You DO NOT need 'None' because your frontend and backend are now same-origin.
+                             // - 'Strict' is more restrictive and might break some legitimate cross-origin navigations to your site. 'Lax' is usually the best balance.
+      maxAge: 1000 * 60 * 60 * 24 // Example: Sets cookie expiry to 1 day (in milliseconds). Adjust as needed.
+                                 // If you omit maxAge, it becomes a "session cookie" tied to the browser session lifetime (deleted when the browser closes), which might also be acceptable depending on your needs. Setting an explicit maxAge is often preferred for predictability.
+    }
   })
 );
+
+
 app.use(bodyParser.json());
 
 app.use(passport.initialize());
@@ -139,7 +157,7 @@ app.get(
 app.get(
   "/auth/google/secrets",
   passport.authenticate("google", {
-    successRedirect: "http://localhost:5173/home",
+    successRedirect: "http://43.204.96.204:5173/home",
     failureRedirect: "/login",
   })
 );
@@ -315,7 +333,7 @@ passport.use(
     {
       clientID: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-      callbackURL: "http://localhost:3000/auth/google/secrets",
+      callbackURL: "http://43.204.96.204:3000/auth/google/secrets",
       userProfileURL: "https://www.googleapis.com/oauth2/v3/userinfo",
     },
     async (accessToken, refreshToken, profile, cb) => {

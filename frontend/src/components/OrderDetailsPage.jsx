@@ -19,7 +19,7 @@ function OrderDetailsPage() {
   useEffect(() => {
     const fetchOrder = async () => {
       try {
-        const response = await axios.get(`http://localhost:3000/service-provider/orders/${orderId}`, { withCredentials: true });
+        const response = await axios.get(`http://43.204.96.204:3000/service-provider/orders/${orderId}`, { withCredentials: true });
         setOrder(response.data);
         setPickupTime(response.data.PickupTime || '');
         setDropoffTime(response.data.DropoffTime || '');
@@ -36,7 +36,7 @@ function OrderDetailsPage() {
 
   const handleUpdate = async () => {
     try {
-      const response = await axios.post('http://localhost:3000/service-provider/update-order', {
+      const response = await axios.post('http://43.204.96.204:3000/service-provider/update-order', {
         OrderID: order.OrderID,
         PickupTime: pickupTime || null,
         DropoffTime: dropoffTime || null,
@@ -49,7 +49,7 @@ function OrderDetailsPage() {
         DropoffTime: dropoffTime
       }));
 
-      await axios.post('http://localhost:3000/service-provider/time-updation', {
+      await axios.post('http://43.204.96.204:3000/service-provider/time-updation', {
         orderId: order.OrderID,
         pickup: pickupTime,
         dropup: dropoffTime
@@ -66,7 +66,7 @@ function OrderDetailsPage() {
   const handleOtpVerification = async () => {
     try {
       
-      const response = await axios.post('http://localhost:3000/service-provider/pickdropverify-otp', {
+      const response = await axios.post('http://43.204.96.204:3000/service-provider/pickdropverify-otp', {
         orderId: order.OrderID,
         otp: otp,
       }, { withCredentials: true });

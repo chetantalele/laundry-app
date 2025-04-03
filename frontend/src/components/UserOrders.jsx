@@ -17,7 +17,7 @@ function UserOrders() {
   useEffect(() => {
     const fetchOrders = async () => {
       try {
-        const response = await axios.get('http://localhost:3000/user/orders', { withCredentials: true });
+        const response = await axios.get('http://43.204.96.204:3000/user/orders', { withCredentials: true });
         const groupedOrders = response.data.reduce((acc, order) => {
           const { OrderID, ServiceID, ServiceName, Quantity, Price, name: lspName, ...orderDetails } = order;
           if (!OrderID) return acc;
